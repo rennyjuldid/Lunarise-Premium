@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Lunarise Premium</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUNARISE SLIDE DESIGN - V66 FINAL</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    
+
+    <style>
+
+        .f-strong-ig { font-family: 'Montserrat', sans-serif; font-weight: 900; font-style: italic; }
+
+        .f-modern-thin { font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 0.01em; }
+
+        .f-android { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        .f-montserrat { font-family: 'Montserrat', sans-serif; }
+
+        .f-lora { font-family: 'Lora', serif; }
+
+        .f-garamond { font-family: 'EB Garamond', serif; }
+
+        .f-josefin { font-family: 'Josefin Sans', sans-serif; }
+
+        .f-righteous { font-family: 'Righteous', cursive; }
+
+        .f-playfair { font-family: 'Playfair Display', serif; }
+
+        .slide-card { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 50px; margin-bottom: 40px; background-size: cover; background-position: center; border-radius: 0px !important; }
+
+        .ratio-tiktok { width: 320px; aspect-ratio: 9/16; }
+
+        .ratio-ig { width: 320px; aspect-ratio: 4/5; }
+
+        
+
+        .content-area { width: 100%; display: flex; flex-direction: column; gap: 20px; }
+
+        /* GAYA BOX */
+
+        .p-wrap { display: block; white-space: pre-wrap; word-wrap: break-word; }
+
+        
+
+        .box-follow-line .p-wrap { 
+
+            display: inline; 
+
+            padding: 4px 12px; 
+
+            box-decoration-break: clone; 
+
+            -webkit-box-decoration-break: clone;
+
+            line-height: 1.9;
+
+        }
+
+        .box-square .p-wrap { padding: 15px; border-radius: 0px; width: 100%; }
+
+        .box-rounded .p-wrap { padding: 15px; border-radius: 25px; width: 100%; }
+
+        .box-none .p-wrap { background: transparent !important; width: 100%; }
+
+        .page-indicator { position: absolute; top: 25px; right: 20px; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 11px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); z-index: 50; }
+
+        
+
+        #mainApp { display: none; }
+
+        [contenteditable="true"]:focus { outline: none; }
+
+        .accent-blue { accent-color: #2563eb; }
+
+    </style>
+
+</head>
+
+<body class="bg-zinc-100 p-4">
+
+    <div id="loginPage" class="max-w-md mx-auto mt-20 bg-white p-10 rounded-[2.5rem] shadow-2xl text-center border border-zinc-200">
+
+        <h1 class="font-[900] text-4xl tracking-tighter text-zinc-900 leading-none mb-2 uppercase">LUNARISE<br>SLIDE DESIGN</h1>
+
+        <div class="inline-block bg-blue-600 text-white text-[10px] px-5 py-1.5 rounded-full font-black uppercase tracking-[0.2em] mb-12 shadow-lg">PREMIUM ACCESS</div>
+
+        <input type="text" id="accessKey" placeholder="MASUKKAN KODE" class="w-full p-4 bg-zinc-50 border border-zinc-200 rounded-2xl text-center font-bold outline-none mb-4 text-xs uppercase">
+
+        <button id="loginBtn" onclick="checkKey()" class="w-full bg-zinc-900 text-white py-4 rounded-2xl font-[900] uppercase shadow-xl active:scale-95 text-xs transition-all">AKTIVASI</button>
+
+    </div>
+
+    <div id="mainApp" class="max-w-[1200px] mx-auto">
+
+        <header class="mb-12 text-center">
+
+            <h1 class="font-[900] text-4xl text-zinc-900 tracking-tighter leading-none uppercase">LUNARISE SLIDE DESIGN</h1>
+
+            <div id="expiryBadge" class="bg-blue-600 text-white text-[10px] px-6 py-2 rounded-full font-black mt-3 shadow-lg inline-block uppercase tracking-widest italic">MEMUAT...</div>
+
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <div class="lg:col-span-1 bg-white p-6 rounded-[2rem] shadow-xl space-y-4 text-[11px] h-fit lg:sticky lg:top-4 border border-zinc-200">
+
+                
+
+                <div class="space-y-2 border-b pb-4">
+
+                    <label class="block font-bold text-blue-600 uppercase">Kanvas & Latar</label>
+
+                    <select id="canvasRatio" class="w-full p-2 border rounded-xl font-bold live-update">
+
+                        <option value="ratio-tiktok">TikTok / Reels (9:16)</option>
+
+                        <option value="ratio-ig">Instagram Feed (4:5)</option>
+
+                    </select>
+
+                    <input type="file" id="imgIn" accept="image/*" onchange="handleImg(this)" class="w-full border p-2 rounded-xl">
+
+                    <div class="flex gap-2 items-center">
+
+                        <input type="color" id="bgColor" value="#f4f1ea" class="w-10 h-8 rounded-lg live-update">
+
+                        <span class="flex-1 font-bold uppercase">Latar</span>
+
+                    </div>
+
+                </div>
+
+                <div class="space-y-3 border-b pb-4">
+
+                    <label class="block font-bold text-zinc-700 uppercase">Tipografi</label>
+
+                    <select id="fontStyle" class="w-full p-2 border rounded-xl font-bold live-update">
+
+                        <option value="f-strong-ig">Strong IG</option>
+
+                        <option value="f-modern-thin">Modern Thin</option>
+
+                        <option value="f-android">Default Sistem</option>
+
+                        <option value="f-montserrat">Montserrat</option>
+
+                        <option value="f-lora">Lora</option>
+
+                        <option value="f-garamond">EB Garamond</option>
+
+                        <option value="f-josefin">Josefin Sans</option>
+
+                        <option value="f-righteous">Righteous</option>
+
+                        <option value="f-playfair">Playfair</option>
+
+                    </select>
+
+                    
+
+                    <div class="grid grid-cols-3 gap-1">
+
+                        <button onclick="toggleFormat('bold')" id="btnBold" class="border py-2 rounded-lg font-bold">B</button>
+
+                        <button onclick="toggleFormat('italic')" id="btnItalic" class="border py-2 rounded-lg italic">I</button>
+
+                        <button onclick="toggleFormat('underline')" id="btnUnderline" class="border py-2 rounded-lg underline">U</button>
+
+                    </div>
+
+                    <select id="textAlign" class="w-full p-2 border rounded-xl font-bold live-update">
+
+                        <option value="center">TENGAH</option>
+
+                        <option value="left">KIRI</option>
+
+                        <option value="right">KANAN</option>
+
+                        <option value="justify">RATA KANAN KIRI</option>
+
+                    </select>
+
+                    
+
+                    <div class="flex justify-between font-bold"><span>UKURAN</span><span id="fontSizeVal">18</span></div>
+
+                    <input type="range" id="fontSize" min="10" max="80" value="18" class="w-full accent-blue live-update">
+
+                    <div class="flex gap-2 items-center">
+
+                        <input type="color" id="textColor" value="#000000" class="w-10 h-8 rounded-lg live-update border">
+
+                        <span class="flex-1 font-bold uppercase">Warna Teks</span>
+
+                    </div>
+
+                </div>
+
+                <div class="space-y-3 border-b pb-4">
+
+                    <label class="block font-bold text-blue-600 uppercase">Gaya Kotak</label>
+
+                    <select id="boxType" class="w-full p-2 border rounded-xl font-bold live-update">
+
+                        <option value="box-none">Tanpa Kotak</option>
+
+                        <option value="box-follow-line">Ikuti Kalimat (Line Wrap)</option>
+
+                        <option value="box-square">Kotak Blok (Square)</option>
+
+                        <option value="box-rounded">Kotak Melengkung (Rounded)</option>
+
+                    </select>
+
+                    <div class="flex gap-2 items-center">
+
+                        <input type="color" id="boxColor" value="#ffffff" class="w-10 h-8 rounded-lg live-update">
+
+                        <span class="flex-1 font-bold uppercase">Warna Kotak</span>
+
+                    </div>
+
+                    <div class="flex justify-between font-bold"><span>TRANSPARANSI</span><span id="boxAlphaVal">0</span></div>
+
+                    <input type="range" id="boxAlpha" min="0" max="100" value="0" class="w-full accent-blue live-update">
+
+                </div>
+
+                <textarea id="inputText" class="w-full h-40 p-4 border rounded-2xl text-xs outline-none" placeholder="Masukkan naskah..."></textarea>
+
+                <button onclick="activatePreview()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-black uppercase shadow-lg">PRATINJAU</button>
+
+                <button id="btnDownload" onclick="downloadAll()" class="w-full bg-zinc-900 text-white py-3 rounded-xl font-black uppercase">UNDUH PNG</button>
+
+            </div>
+
+            <div class="lg:col-span-3 flex flex-wrap gap-8 justify-center pb-20" id="slideContainer">
+
+                <div class="text-zinc-300 italic mt-20 text-center uppercase tracking-widest font-bold">READY</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx5dYSBwauX7zBDp9NTWRXkFfkvvLMSr7HgBxlU-PnXZ1mQ2-9aI8g81vc4kUQin42Wmw/exec"; 
+
+        async function checkKey() {
+
+            const key = document.getElementById('accessKey').value.trim().toUpperCase();
+
+            const btn = document.getElementById('loginBtn');
+
+            if(!key) return alert("Masukkan kode!");
+
+            btn.innerText = "..."; btn.disabled = true;
+
+            try {
+
+                const response = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify({ kode: key }) });
+
+                const res = await response.json();
+
+                if(res.status === "success") {
+
+                    document.getElementById('loginPage').style.display = 'none';
+
+                    document.getElementById('mainApp').style.display = 'block';
+
+                    document.getElementById('expiryBadge').innerText = "PREMIUM: " + res.sisaHari + " HARI";
+
+                } else { alert("Kode Salah."); }
+
+            } catch (e) { alert("Error."); }
+
+            btn.innerText = "AKTIVASI"; btn.disabled = false;
+
+        }
+
+        let bgImg = "";
+
+        let isPreviewActive = false;
+
+        let textFormats = { bold: false, italic: false, underline: false };
+
+        function handleImg(input) {
+
+            const reader = new FileReader();
+
+            reader.onload = (e) => { bgImg = e.target.result; if(isPreviewActive) renderSlides(); };
+
+            reader.readAsDataURL(input.files[0]);
+
+        }
+
+        function toggleFormat(type) {
+
+            textFormats[type] = !textFormats[type];
+
+            document.getElementById('btn' + type.charAt(0).toUpperCase() + type.slice(1)).classList.toggle('bg-zinc-900', textFormats[type]);
+
+            document.getElementById('btn' + type.charAt(0).toUpperCase() + type.slice(1)).classList.toggle('text-white', textFormats[type]);
+
+            if(isPreviewActive) renderSlides();
+
+        }
+
+        function activatePreview() { isPreviewActive = true; renderSlides(); }
+
+        document.querySelectorAll('.live-update').forEach(i => i.addEventListener('input', () => { 
+
+            if(i.id === 'fontSize') document.getElementById('fontSizeVal').innerText = i.value;
+
+            if(i.id === 'boxAlpha') document.getElementById('boxAlphaVal').innerText = i.value;
+
+            if(isPreviewActive) renderSlides(); 
+
+        }));
+
+        function splitContent(text, maxChars) {
+
+            const chunks = [];
+
+            let current = "";
+
+            const sections = text.split(/\n\n+/);
+
+            
+
+            sections.forEach(sec => {
+
+                if ((current + sec).length <= maxChars) {
+
+                    current += sec + "\n\n";
+
+                } else {
+
+                    if(current.trim() !== "") chunks.push(current.trim());
+
+                    current = sec + "\n\n";
+
+                }
+
+            });
+
+            if(current.trim() !== "") chunks.push(current.trim());
+
+            return chunks;
+
+        }
+
+        function hexToRgba(hex, alpha) {
+
+            const r = parseInt(hex.slice(1, 3), 16);
+
+            const g = parseInt(hex.slice(3, 5), 16);
+
+            const b = parseInt(hex.slice(5, 7), 16);
+
+            return `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
+
+        }
+
+        function renderSlides() {
+
+            const raw = document.getElementById('inputText').value;
+
+            const container = document.getElementById('slideContainer');
+
+            if(!raw.trim()) return;
+
+            const chunks = splitContent(raw, 250);
+
+            container.innerHTML = "";
+
+            chunks.forEach((chunk, idx) => {
+
+                const card = document.createElement('div');
+
+                card.className = `slide-card shadow-2xl ${document.getElementById('canvasRatio').value}`;
+
+                card.style.backgroundImage = bgImg ? `url(${bgImg})` : 'none';
+
+                card.style.backgroundColor = bgImg ? 'transparent' : document.getElementById('bgColor').value;
+
+                
+
+                const boxType = document.getElementById('boxType').value;
+
+                const boxColor = hexToRgba(document.getElementById('boxColor').value, document.getElementById('boxAlpha').value);
+
+                const align = document.getElementById('textAlign').value;
+
+                
+
+                const sharedStyle = `
+
+                    color:${document.getElementById('textColor').value}; 
+
+                    font-size:${document.getElementById('fontSize').value}px; 
+
+                    font-weight:${textFormats.bold?'bold':'normal'}; 
+
+                    font-style:${textFormats.italic?'italic':'normal'};
+
+                    text-decoration:${textFormats.underline?'underline':'none'};
+
+                    background-color: ${boxColor};
+
+                    text-align: ${align};
+
+                `;
+
+                
+
+                const paragraphs = chunk.split(/\n\n+/);
+
+                let htmlContent = `<div class="content-area ${boxType}" style="align-items:${align === 'center' ? 'center' : (align === 'right' ? 'flex-end' : (align === 'justify' ? 'stretch' : 'flex-start'))};">`;
+
+                
+
+                paragraphs.forEach(p => {
+
+                    if(p.trim() !== "") {
+
+                        htmlContent += `<div class="p-wrap" contenteditable="true" style="${sharedStyle}">${p}</div>`;
+
+                    }
+
+                });
+
+                
+
+                htmlContent += `</div>`;
+
+                card.innerHTML = `
+
+                    <div class="page-indicator">${idx+1}/${chunks.length}</div>
+
+                    <div class="${document.getElementById('fontStyle').value} w-full">${htmlContent}</div>`;
+
+                container.appendChild(card);
+
+            });
+
+        }
+
+        async function downloadAll() {
+
+            const cards = document.querySelectorAll('.slide-card');
+
+            const btn = document.getElementById('btnDownload');
+
+            if(cards.length === 0) return;
+
+            btn.innerText = "..."; btn.disabled = true;
+
+            for(let i=0; i<cards.length; i++) {
+
+                const canvas = await html2canvas(cards[i], { scale: 4, useCORS: true });
+
+                const link = document.createElement('a');
+
+                link.download = `SLIDE_${i+1}.png`;
+
+                link.href = canvas.toDataURL();
+
+                link.click();
+
+                await new Promise(r => setTimeout(r, 700));
+
+            }
+
+            btn.innerText = "UNDUH PNG"; btn.disabled = false;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+    
+  </body>
+  
+</html>
